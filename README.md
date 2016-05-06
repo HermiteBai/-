@@ -1,4 +1,4 @@
-# Again-you-are-not-paying-attention
+# Project：你又在摸鱼了
 
 + Compile: Use `make` to run Makefile in order to compile
 + Run: Use `sh ./activate.sh` to execute
