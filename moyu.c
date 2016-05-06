@@ -58,6 +58,7 @@ void handler(int sig)
 int main()
 {
 		signal(SIGINT, handler);
+		signal(SIGQUIT, handler);
 		system("clear");
 		pthread_create(&pid1, NULL, counter, NULL);
 		pthread_create(&pid2, NULL, update, NULL);
