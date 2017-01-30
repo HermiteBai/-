@@ -22,6 +22,7 @@ void* counter(void* arg)
 		size_t minute = (count % 3600) / 60;
 		size_t second = (count % 3600) % 60;
 		if (flag)
+		{
 			printf("You have been distracted for %zu %s %zu %s %zu %s\n", 
 										hour, 
 										(hour <= 1) ? str5 : str6, 
@@ -29,6 +30,11 @@ void* counter(void* arg)
 										(minute <= 1) ? str3: str4,
 										second,
 										(second <= 1) ? str1 : str2);
+			if (count % 60 == 0) {
+				system("say You should work now!");
+			}
+		}
+			
 		else
 			printf("Working\n");
 		sleep(1);
