@@ -12,6 +12,7 @@ char* str3 = "minute";
 char* str4 = "minutes";
 char* str5 = "hour";
 char* str6 = "hours";
+int default_alarm = 1;
 
 void* counter(void* arg)
 {
@@ -30,7 +31,7 @@ void* counter(void* arg)
 										(minute <= 1) ? str3: str4,
 										second,
 										(second <= 1) ? str1 : str2);
-			if (count % 60 == 0) {
+			if (count % 60 * default_alarm == 0) {
 				system("say You should work now!");
 			}
 		}
@@ -61,8 +62,12 @@ void handler(int sig)
 	exit(0);
 }
 
-int main()
+int main(int argc, char** argv)
 {
+		if (argc != 2) {
+			exit(1);
+		}
+		default_alarm = atoi(argv[1]);
 		signal(SIGINT, handler);
 		signal(SIGQUIT, handler);
 		system("clear");

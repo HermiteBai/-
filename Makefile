@@ -1,8 +1,8 @@
 all: moyu.c
-	clang moyu.c -o 摸鱼
+	clang moyu.c -o moyu
 moyu.c:
 	mkdir moyu_download
 	curl -o moyu.c https://github.com/HermiteBai/Again-you-are-not-paying-attention/blob/master/moyu.c
-	echo "./摸鱼" > ./activate.sh
+	echo “./moyu 1” > ./activate.sh
 clean:
-	rm ./摸鱼
+	rm ./moyu
